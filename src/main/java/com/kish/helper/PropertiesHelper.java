@@ -2,7 +2,6 @@ package com.kish.helper;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -18,7 +17,7 @@ public class PropertiesHelper {
 
         INSTANCE;
 
-        private PropertiesHelper propertiesHelper =new PropertiesHelper();
+        private PropertiesHelper propertiesHelper = new PropertiesHelper();
 
         public PropertiesHelper getPropertiesHelper(){
             return propertiesHelper;
@@ -37,8 +36,6 @@ public class PropertiesHelper {
                 fis.close();
         }
         return properties;
-
-
     }
 
 

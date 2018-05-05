@@ -1,7 +1,8 @@
 package com.kish.helper;
 
-import java.util.Collection;
-import java.util.Map;
+import java.io.File;
+import java.io.IOException;
+import java.util.*;
 
 public class BaseHelper {
 
@@ -51,6 +52,36 @@ public class BaseHelper {
         return (value != null && value.size() > 0) ? true : false;
     }
 
+    public List<String> readFileToList(String filePath)throws IOException {
+        LinkedList<String> linkedList = new LinkedList<String>();
+        Scanner scanner = null;
+        try {
+            scanner = new Scanner(new File(getPath(filePath)));
+            while (scanner.hasNext()){
+                linkedList.add(scanner.nextLine());
+            }
+        }finally {
+            if(scanner != null)
+                scanner.close();
+        }
+        return linkedList;
+    }
 
+    public String readFileToString(String filePath)throws IOException {
+        StringBuilder stringBuilder = new StringBuilder();
+        Scanner scanner = null;
+        try {
+            scanner = new Scanner(new File(getPath(filePath)));
+            while (scanner.hasNext()){
+                stringBuilder.append(scanner.next());
+                stringBuilder.append("\n");
+
+            }
+        }finally {
+            if(scanner != null)
+                scanner.close();
+        }
+        return stringBuilder.toString();
+    }
 
 }
